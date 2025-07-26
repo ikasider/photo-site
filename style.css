@@ -14,7 +14,7 @@ body {
 
 .hero {
     position: relative;
-    background-image: url('files/DSC05333.jpg');
+    background-image: url('DSC05333.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
