@@ -175,3 +175,28 @@ footer {
     padding: 20px;
     position: relative;
 }
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+    color: white;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+    text-shadow: 0 0 10px #000;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+    
+}
