@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilya Derevyankin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hero">
+        <h1>Photographer</h1>
+        <h2>Ilya Derevyankin</h2>
+        <h3>Documenting moments worth reliving forever.</h3>
+    </div>
+
+    
+    <div class="gallery">
+        <h2 id="txtgallery">Gallery</h2>
+        <img src="files/DSC05159.jpg" alt="">
+        <img src="files/DSC05161.jpg" alt="">
+        <img src="files/DSC05176.jpg" alt="">
+        <img src="files/DSC05241.jpg" alt="">
+        <img src="files/DSC05262.jpg" alt="">
+        <img src="files/DSC05275.jpg" alt="">
+        <img src="files/DSC05333.jpg" alt="">
+        <img src="files/DSC05338.jpg" alt="">
+        <img src="files/DSC05537.jpg" alt="">
+        <img src="files/DSC05590.jpg" alt="">
+        <img src="files/DSC05591.jpg" alt="">
+        <img src="files/DSC05315.jpg" alt="">
+        <img src="files/DSC05589.jpg" alt="">
+        <img src="files/DSC05184.jpg" alt="">
+        <img src="files/DSC05183.jpg" alt="">
+        <img src="files/DSC05150.jpg" alt="">
+        <img src="files/DSC05105 center.jpg" alt="">
+        <img src="files/DSC05049.jpg" alt="">
+        <img src="files/DSC04983 AI.jpg" alt="">
+        <img src="files/DSC05028.jpg" alt="">
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="">
+    </div>
+
+    <div class="about">
+        <h1 style="padding: 50px; font-size: 3em; text-align: center;">About me</h1>
+        <h3 style="font-size: 1.5em;">I’ve been passionate about photography since I was 14 years old. From the very beginning, it fascinated me how a single image can tell a thousand stories. 
+        I love capturing beautiful landscapes and the little details that often go unnoticed. But what excites me most is catching genuine, raw emotions that make moments alive forever. 
+        When people stop noticing the camera, that’s when the real magic happens — everything feels natural and spontaneous. I live in Haifa, Israel, a place full of stunning views that inspire my work every day. 
+        Although I specialize mostly in landscape photography, I also enjoy photographing people and their unique stories. Shooting portraits allows me to connect with my subjects and reveal their true selves. 
+        I work with professional cameras and lenses that help me bring my vision to life. Natural light is my favorite — it adds warmth and depth to every photo. 
+        But I’m not afraid of challenges; shooting at night or in difficult conditions pushes me to grow as an artist. Photography, for me, is more than just pictures — it’s a way to preserve memories and emotions. 
+        Every frame is a chance to see the world differently and share that perspective with others. I strive to create images that speak to the heart and invite viewers to feel what I felt behind the lens. 
+        Ultimately, I believe the best photos are the ones that tell honest stories and capture the beauty in everyday life.</h3>
+    </div>
+
+    <div class="services">
+        <h1 style="text-align: center; font-size: 3em; padding: 50px;">Services</h1>
+        <ul style="list-style: none;">
+            <li>
+                <h3>Individual Shoot</h3>
+                <p>Duration: 2 hours</p>
+                <p class="price">Price: $100</p>
+            </li>
+            <li>
+                <h3>Wedding Package</h3>
+                <p>Full day coverage, including pre-wedding shoot</p>
+                <p class="price">Price: $700</p>
+            </li>
+            <li>
+                <h3>Family Portraits</h3>
+                <p>Warm and personal family sessions</p>
+                <p class="price">Price: $200</p>
+            </li>
+            <li>
+                <h3>Commercial Photography</h3>
+                <p>Brand shoots, Instagram content, business portraits</p>
+                <p class="price">Price: $400</p>
+            </li>
+        </ul>
+        <button id="download-price" href="files/..." download>Download Price List (PDF)</button>
+
+    </div>
+
+    <div class="date-form" style="color: white;">
+        <h1 style="text-align: center; font-size: 3em; padding-top: 50px; color: white;">Book a photoshoot</h1>
+        <form action="https://formsubmit.co/ilyawoodyru@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="name" placeholder="Your Name" required style="margin-bottom: 10px; padding: 10px; width: 300px;">
+            <input type="email" name="email" placeholder="Your Email" required style="margin-bottom: 10px; padding: 10px; width: 300px;">
+            <input type="date" name="date" required style="margin-bottom: 10px; padding: 10px; width: 300px;">
+            <select name="subject" id="subject" required style="margin-bottom: 10px; padding: 10px; width: 325px;">
+                <option value="individual">Individual</option>
+                <option value="wedding">Wedding</option>
+                <option value="family">Family</option>
+                <option value="commmercial">Commercial</option>
+            </select>
+            <textarea name="message" placeholder="Your Message" required style="margin-bottom: 10px; padding: 10px; width: 300px;"></textarea>
+            <button id="submit-button" type="submit">Send Message</button>
+        </form>
+
+        <p style="text-align: center;">I usually reply within a day. Don’t hesitate to reach out, I’m here to help :)</p>
+    </div>
+
+    <footer style="color: white;">
+        <p>&copy; 2020 Ilya Derevyankin</p>
+        <p>Made with love for photography</p>
+    </footer>
+</body>
+
+<script>
+    const sections = document.querySelectorAll('.hero, .gallery');
+    let isScrolling = false;
+    let lockScroll = false;
+
+    window.addEventListener('wheel', (e) => {
+    if (isScrolling) return;
+
+    const scrollY = window.scrollY;
+    const galleryOffsetTop = sections[1].offsetTop;
+
+    if (e.deltaY > 0 && scrollY >= galleryOffsetTop) {
+        lockScroll = true;
+        return;
+    }
+
+    if (e.deltaY < 0 && scrollY > sections[0].offsetTop && scrollY < galleryOffsetTop) {
+        lockScroll = false;
+    }
+
+    if (lockScroll) return;
+
+    const currentSectionIndex = (scrollY < galleryOffsetTop / 2) ? 0 : 1;
+
+    if (e.deltaY > 0) {
+        if (currentSectionIndex < sections.length - 1) {
+        scrollToSection(currentSectionIndex + 1);
+        }
+    } else {
+        if (currentSectionIndex > 0) {
+        scrollToSection(currentSectionIndex - 1);
+        }
+    }
+    });
+
+    function scrollToSection(index) {
+    isScrolling = true;
+    sections[index].scrollIntoView({ behavior: 'smooth' });
+
+    setTimeout(() => {
+        isScrolling = false;
+    }, 1);
+    }
+
+
+
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightbox.style.display = 'flex';
+        });
+    });
+
+    lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
+</script>
+</html>
+
+
+<!--
+Иконки — простые, от Lucide или Feather Icons
+
+Адаптив — обязательно. На телефоне сайт выглядит как Insta-лента -->
